@@ -1,0 +1,26 @@
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+background-color:#cdd8d4;
+}
+
+h1 {
+text-align: center;
+color:#110a0a;
+}
+
+.iframe-container {
+ display: flex;
+flex-direction: row;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+iframe {
+width: 30%;
+height: 500px;
+border: 2px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
