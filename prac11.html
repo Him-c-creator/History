@@ -1,0 +1,238 @@
+<html>
+<head>
+  <title>HTML5 APIs Demo - Drag, Geo & Storage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #2daf5f;
+      color: #333;
+    }
+    h1 { text-align: center; color: #2c3e50; }
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .card {
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      transition: all 0.8s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 { color: #111518; margin-top: 0; }
+    
+    #dropzone {
+      border: 3px dashed #3498db;
+     height: 150px;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 18px;
+      color: #1ba6c9;
+      background: #dac6c6;
+      margin: 10px 0;
+      transition: all 0.3s;
+    }
+    #dropzone.dragover {
+      background: #d5f4e6;
+      border-color: #27ae60;
+      color: #27ae60;
+    }
+    .draggable {
+      padding: 15px;
+      margin: 8px;
+      background: #647988;
+      color: white;
+      border-radius: 8px;
+      cursor: grab;
+      display: inline-block;
+      width: 80px;
+      text-align: center;
+    }
+      #locationResult {
+        background: #abb4bb;
+        height: 150px;
+        width: 250px;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px 20px;
+      background: #010202;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #219653; }
+
+    input { padding: 10px; width: 80%; margin: 10px 0; }
+    .stored-data {
+      background:   #1c98a8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      min-height: 50px;
+    }
+    .card:hover {
+      transform:  translate3d(10px, -10px, 0);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML5 APIs Demo 🎓</h1>
+  <p style="text-align:center; color:#666;"></p>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>1. Drag & Drop API</h2>
+      <p><strong>Drag the boxes into the drop zone!</strong></p>
+      
+      <div class="draggable" draggable="true" id="item1">📱 Item 1</div>
+      <div class="draggable" draggable="true" id="item2">💻 Item 2</div>
+      <div class="draggable" draggable="true" id="item3">🎒 Item 3</div>
+
+      <div id="dropzone">Drop items here...</div>
+
+      <p><strong>Dropped Items:</strong></p>
+      <div id="droppedList"></div>
+    </div>
+
+  
+    <div class="card">
+      <h2>2. Geolocation API</h2>
+      <P>Click the button to get your current location:</P>
+      <button onclick="getLocation()">📍 Get My Location</button>
+      
+      <div id="locationResult">
+        <p><strong>Status:</strong> Click to get location</p>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <h2>3. Web Storage (localStorage)</h2>
+      <p>Save anything you want to remember:</p>
+      <input type="text" id="userName" placeholder="Enter something to save">
+      <button onclick="saveName()">Save</button>
+      <button onclick="clearStorage()">Clear All</button>
+
+      <div class="stored-data">
+        <strong>Saved Data:</strong><br>
+        <span id="displayName">No data saved yet</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const dropzone = document.getElementById('dropzone');
+    const droppedList = document.getElementById('droppedList');
+
+    // Make all draggable items work
+    document.querySelectorAll('.draggable').forEach(item => {
+      item.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', item.innerHTML);
+      });
+    });
+
+    // Dropzone events
+    dropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    });
+
+    dropzone.addEventListener('dragleave', () => {
+      dropzone.classList.remove('dragover');
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+      
+      const data = e.dataTransfer.getData('text/plain');
+      const li = document.createElement('div');
+      li.style.margin = '8px 0';
+      li.style.padding = '10px';
+      li.style.background = '#d5f4e6';
+      li.style.borderRadius = '6px';
+      li.innerHTML = `✅ ${data}`;
+      droppedList.appendChild(li);
+    });
+
+    function getLocation() {
+      const result = document.getElementById('locationResult');
+      
+      if (navigator.geolocation) {
+        result.innerHTML = "<p>🔄 Getting your location...</p>";
+        
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude.toFixed(4);
+            const lon = position.coords.longitude.toFixed(4);
+            const acc = position.coords.accuracy.toFixed(0);
+            
+            result.innerHTML = `
+              <strong>✅ Location Found!</strong><br>
+              Latitude: ${lat}°<br>
+              Longitude: ${lon}°<br>
+              Accuracy: ${acc} meters<br><br>
+              <small>You are somewhere near Pimpri, Maharashtra (based on your IP)</small>
+            `;
+          },
+          (error) => {
+            result.innerHTML = `<strong>❌ Error:</strong> ${error.message}`;
+          }
+        );
+      } else {
+        result.innerHTML = "<strong>❌ Geolocation is not supported by this browser.</strong>";
+      }
+    }
+
+    // ================== 3. WEB STORAGE ==================
+    function saveName() {
+      const name = document.getElementById('userName').value.trim();
+      if (name === "") {
+        alert("Please enter a name!");
+        return;
+      }
+      
+      localStorage.setItem('studentName', name);
+      displaySavedName();
+      alert(`Name "${name}" saved using localStorage!`);
+    }
+
+    function displaySavedName() {
+      const saved = localStorage.getItem('studentName');
+      document.getElementById('displayName').innerHTML = 
+        saved ? `<strong>${saved}</strong> (saved using Web Storage)` : "No data saved yet";
+    }
+
+    function clearStorage() {
+      if (confirm("Clear all saved data?")) {
+        localStorage.clear();
+        displaySavedName();
+        alert("Web Storage cleared!");
+      }
+    }
+
+    // Load saved name when page loads
+    window.onload = () => {
+      displaySavedName();
+    };
+  </script>
+
+</body>
+</html>
