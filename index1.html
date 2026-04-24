@@ -1,0 +1,161 @@
+<html>
+<head>
+  <title>Student Feedback Fiesta</title>
+  <link rel="stylesheet" href="gg.css">
+</head>
+<body>
+<main class="glow-main">
+  <center>
+    <img src="https://img.freepik.com/premium-photo/international-group-happy-students-posing-colorful-backgrounds-collage_116547-70067.jpg">
+    <h1>🎓 Student Feedback Fiesta</h1>
+    <p><b>Share the highlights, shape the next chapter, and help your course shine.</b></p>
+  </center>
+<img src = "https://smartcookie.in/image/student250.png"
+height = "100px" width = "100px"
+style = "position:fixed; top :10px; right:50px;">
+
+
+
+  <hr>
+  <section>
+    <h2>📝 Course Feedback Form</h2>
+    <form id="feedbackForm" method="post" action="#" novalidate>
+      <fieldset>
+        <legend>👤 Student & Course Details</legend>
+        <p>
+          <label for="name">Your Name:<br>
+            <input id="name" name="studentName" placeholder="Full name" required>
+          </label>
+        </p>
+        <p>
+          <label for="email">Your College Email:<br>
+            <input id="email" name="studentEmail" placeholder="Email address" required>
+          </label>
+        </p>
+  <p>
+          <label for="Roll ">Your Roll Number:<br>
+            <input id="Roll " name="studentRoll" placeholder="Roll number" required>
+          </label>
+        </p>
+         <label for="courseName">Course Name:<br>
+            <select id="courseName" name="courseName" required>
+              <option value="">Select course</option>
+              <option value="ICLA">ICLA</option>
+              <option value="WDL">WDL</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="SMPL">SMPL</option>
+            </select>
+          </label>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>⭐ Course Experience</legend>
+        <p><b>1. How was your experience?</b></p>
+        <p>
+          <label><input type="radio" name="experience" value="poor" required> Poor</label>
+          <label><input type="radio" name="experience" value="fair"> Fair</label>
+          <label><input type="radio" name="experience" value="good"> Good</label>
+          <label><input type="radio" name="experience" value="excellent"> Excellent</label>
+        </p>
+        <p><b>2. Teacher's method of teaching</b></p>
+        <p>
+          <label><input type="radio" name="teaching" value="poor" required> Poor</label>
+          <label><input type="radio" name="teaching" value="fair"> Fair</label>
+          <label><input type="radio" name="teaching" value="good"> Good</label>
+          <label><input type="radio" name="teaching" value="excellent"> Excellent</label>
+        </p>
+        <p><b>3. The ease of understanding the material</b></p>
+        <p>
+          <label><input type="radio" name="understanding" value="poor" required> Poor</label>
+          <label><input type="radio" name="understanding" value="fair"> Fair</label>
+          <label><input type="radio" name="understanding" value="good"> Good</label>
+          <label><input type="radio" name="understanding" value="excellent"> Excellent</label>
+        </p>
+        <p><b>4. The usage of projectors and high end technology</b></p>
+        <p>
+          <label><input type="radio" name="technology" value="poor" required> Poor</label>
+          <label><input type="radio" name="technology" value="fair"> Fair</label>
+          <label><input type="radio" name="technology" value="good"> Good</label>
+          <label><input type="radio" name="technology" value="excellent"> Excellent</label>
+        </p>
+        <p><b>5. The real-life application of the concepts</b></p>
+        <p>
+          <label><input type="radio" name="application" value="poor" required> Poor</label>
+          <label><input type="radio" name="application" value="fair"> Fair</label>
+          <label><input type="radio" name="application" value="good"> Good</label>
+          <label><input type="radio" name="application" value="excellent"> Excellent</label>
+        </p>
+        <p><b>6. The overall quality of the course</b></p>
+        <p>
+          <label><input type="radio" name="quality" value="poor" required> Poor</label>
+          <label><input type="radio" name="quality" value="fair"> Fair</label>
+          <label><input type="radio" name="quality" value="good"> Good</label>
+          <label><input type="radio" name="quality" value="excellent"> Excellent</label>
+        </p>
+        <p>
+          <label for="liked">What did you like most about this course?<br>
+            <textarea id="liked" name="liked" rows="4" placeholder="Describe the highlights" required></textarea>
+          </label>
+        </p>
+
+        <p>
+          <label for="suggestions">Suggestions for improvement:<br>
+            <textarea id="suggestions" name="suggestions" rows="4" placeholder="Ideas to make the course better" required></textarea>
+          </label>
+        </p>
+
+        <p><b>Would you recommend this course to others?</b></p>
+        <p>
+          <label><input type="radio" name="recommend" value="Yes" required> Yes, definitely</label>
+          <label><input type="radio" name="recommend" value="Maybe"> Maybe</label>
+          <label><input type="radio" name="recommend" value="No"> No</label>
+        </p>
+                <p>
+          <label for="overallRating">Overall Rating (1–10):<br>
+            <input id="overallRating" name="overallRating" type="range" min="1" max="10" value="8" required>
+          </label>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>➕ Additional Info</legend>
+        <p>
+          <label for="sessionFormat">Session format:<br>
+            <select id="drop">
+              <option value="">Choose format</option>
+              <option value="Lecture">Lecture</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Online">Online</option>
+            </select>
+          </label>
+        </p>
+
+        <p>
+          <label for="topics">Topics to add or expand (comma separated):<br>
+            <input id="topics" name="topics" type="text" placeholder="e.g. more hands-on projects" required>
+          </label>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Send Feedback 🚀</button>
+      </p>
+    </form>
+  </section>
+
+  <hr>
+  <footer>
+    <center>
+      <b>Thank you for helping improve learning! 🌈</b>
+      <p>Text is available under the Creative Commons Attribution-ShareAlike 4.0 License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. This Form is a registered trademark of the Feedback Foundation, Inc., a non-profit organization.<br>
+<a href="https://en.Privacy_policy">Privacy policy</a><br>
+<a href="https://en.:About">About</a><br>
+<a href="https://en.:Contact_us">Contact</a>
+
+</p>
+    </center>
+  </footer>
+</main>
+</body>
+</html>
