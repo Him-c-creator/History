@@ -1,0 +1,123 @@
+/* style-glow.css: Awesome glowing style for Student Feedback Fiesta */
+
+body {
+  background: linear-gradient(135deg, #25d4cc 0%, #001d1d 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.08);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.85);
+  margin: 32px auto;
+  max-width: 700px;
+  padding: 32px 24px 24px 24px;
+  border: 2px solid #fff;
+}
+
+h1, h2, legend {
+  color: #222;
+  text-shadow: 0 0 8px #fff, 0 0 16px #00e6ff, 0 0 24px #00e6ff;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+}
+
+fieldset {
+  border: 2px solid #00e6ff;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 12px #00e6ff44;
+  background: #fafdffcc;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 12px;
+}
+
+label, p, textarea, select, input {
+  font-size: 1em;
+}
+
+input[type="text"], input[type="email"], textarea, select {
+  border: 1.5px solid #00e6ff;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  width: 90%;
+  background: #fff;
+  box-shadow: 0 0 8px #00e6ff22;
+  transition: box-shadow 0.2s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 16px #00e6ff88;
+}
+
+input[type="radio"], input[type="range"] {
+  accent-color: #00e6ff;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #00e6ff 0%, #00ffa3 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 0 0 16px #00e6ff88, 0 0 8px #fff;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #00ffa3 0%, #00e6ff 100%);
+  box-shadow: 0 0 32px #00e6ffcc, 0 0 16px #fff;
+}
+
+footer {
+  margin-top: 32px;
+  color: #333;
+  font-size: 0.95em;
+  text-align: center;
+  text-shadow: 0 0 8px #fff, 0 0 16px #00e6ff44;
+}
+
+img {
+  border-radius: 16px;
+  box-shadow: 0 0 24px #00e6ff55, 0 0 8px #fff;
+  margin-bottom: 18px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+img:hover {
+  transform: scale(1.07) rotate(2deg);
+  box-shadow: 0 0 40px #00e6ffcc, 0 0 16px #fff;
+}
+
+img[style*="position:fixed"]:hover {
+  transform: scale(1.15) rotate(2deg);
+  box-shadow: 0 0 32px #30f7f7cc, 0 0 16px #fff;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #00e6ff;
+  margin: 32px 0;
+  box-shadow: 0 0 8px #00e6ff44;
+}
