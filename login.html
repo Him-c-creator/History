@@ -9,8 +9,8 @@
         background-size:cover;background-position:center fixed;color:#111;display:flex;align-items:center;justify-content:center
       }
       .card{width:360px;background:var(--card-bg);border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.5);backdrop-filter: blur(6px)}
-      h1{margin:0 0 10px;font-size:20px}
-      .field{display:flex;flex-direction:column;margin-bottom:14px}
+      h1{margin:0 0 10px;font-size:25px}
+      .field{display:flex;flex-direction:column;margin-bottom:19px}
       input[type="text"],input[type="password"]{padding:10px 12px;border-radius:8px;border:1px solid rgba(15,23,42,0.08);font-size:14px}
       button{width:100%;padding:10px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#2563eb);color:#fff;font-weight:600;margin-top:6px;cursor:pointer}
       .footer{margin-top:12px;text-align:center;font-size:12px;color:var(--muted)}
@@ -24,7 +24,7 @@
 <form id="loginForm" autocomplete="off">
     <div class="field">
 <label for="roll">Roll No.</label>
-<input id="roll" name="roll" type="text">
+<input id="roll" name="roll" type="text"placeholder="Your roll number" required>
 </div>
 <div class="field">
 <label for="password">Password</label>
