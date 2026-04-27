@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      :root{--card-bg: rgba(255,255,255,0.85);--accent:#3b82f6;--muted:#6b7280}
+      html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+      body{
+        background-image:linear-gradient(rgba(10,10,10,0.45),rgba(10,10,10,0.45)),url('https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?cs=srgb&dl=pexels-bri-schneiter-28802-346529.jpg&fm=jpg');
+        background-size:cover;background-position:center fixed;color:#111;display:flex;align-items:center;justify-content:center
+      }
+      .card{width:360px;background:var(--card-bg);border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.5);backdrop-filter: blur(6px)}
+      h1{margin:0 0 10px;font-size:20px}
+      .field{display:flex;flex-direction:column;margin-bottom:14px}
+      input[type="text"],input[type="password"]{padding:10px 12px;border-radius:8px;border:1px solid rgba(15,23,42,0.08);font-size:14px}
+      button{width:100%;padding:10px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#2563eb);color:#fff;font-weight:600;margin-top:6px;cursor:pointer}
+      .footer{margin-top:12px;text-align:center;font-size:12px;color:var(--muted)}
+      @media (max-width:420px){.card{width:92%;padding:20px}}
+    </style>
+  </head>
+  <body>
+<div class="card" role="main">
+<h1>Student Portal Login</h1>
+<p class="lead">Enter your roll number and password to continue.</p>
+<form id="loginForm" autocomplete="off">
+    <div class="field">
+<label for="roll">Roll No.</label>
+<input id="roll" name="roll" type="text">
+</div>
+<div class="field">
+<label for="password">Password</label>
+<input id="password" name="password" type="password" placeholder="Your password" required>
+</div>
+<button type="submit">Sign In</button>
+<div id="error" class="helper" aria-live="polite"></div>
+</form>
+<div class="footer">Need an account? Contact the administrator.</div>
+</div>
+
+    <script>
+      const form = document.getElementById('loginForm');
+      const err = document.getElementById('error');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        err.textContent = '';
+        const roll = document.getElementById('roll').value.trim();
+        const pass = document.getElementById('password').value;
+
+        // Basic client-side validation: roll must be digits (min 4), password min 6
+        if (!/^\d{4,}$/.test(roll)) { err.textContent = 'Enter a valid roll number (at least 4 digits).'; return; }
+        if (pass.length < 6) { err.textContent = 'Password must be at least 6 characters.'; return; }
+
+        window.location.href = 'index1.html';
+      });
+    </script>
+  </body>
+</html>
